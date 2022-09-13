@@ -1,0 +1,24 @@
+{
+  "name": "Customization Yandex",
+  "description": "Кастомизация Яндекса",
+  "version": "1.0",
+  "manifest_version": 3,
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/images/main_ico.png",
+      "32": "/images/main_ico.png",
+      "48": "/images/main_ico.png",
+      "128": "/images/main_ico.png"
+    }
+  },
+  "icons": {
+    "16": "/images/main_ico.png",
+    "32": "/images/main_ico.png",
+    "48": "/images/main_ico.png",
+    "128": "/images/main_ico.png"
+  },
+
+  "permissions": ["activeTab", "scripting"]
+}
