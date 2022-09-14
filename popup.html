@@ -18,9 +18,9 @@
   				<label class="item__name">Фон:</label>
   				<input class="item__color" type="color" name="">
   			</div>
-  			<div class="item">
+  			<div class="item" style="display: none;">
   				<label class="item__name">Фон:</label>
-  				<button class="btn btn_select">Открыть</button>
+  				<button class="btn btn_open">Открыть</button>
   			</div>
   			<div class="item">
   				<label class="item__name">Текст:</label>
@@ -31,10 +31,23 @@
   		<button class="btn">Сброс</button>
   	</div>
 
+   <div class="container__customiz selected-window ">
+      <input type="file" name="files" id="files" style="opacity:0">
+      <button class="button_close">X</button>
+      <button class="btn select__button">Выбрать изображение</button>
+      <button class="btn delete__button">Удалить фон</button>
+      <input type="range" id="volume" name="volume"
+         min="1" max="10">
+      <label class="label_opacity" for="volume">прозрачность</label>
+    </div>
+
   	<footer class="footer">
   		<a class="footer__link" href="#">© 2022 Cradle of Desires</a>
   	</footer>
 
-  	<script src="scriptes/jquery-3.6.1.js"></script>
+   <script src="scriptes/jquery-3.6.1.js"></script>
+   <script type="text/javascript" src="scriptes/File.js"></script>
+   <script type="text/javascript" src="scriptes/modal_window.js"></script>
+  	
   </body>
 </html>

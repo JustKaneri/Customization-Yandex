@@ -20,5 +20,6 @@
     "128": "/images/main_ico.png"
   },
 
-  "permissions": ["activeTab", "scripting"]
+  "permissions": ["activeTab", "scripting","cookies","downloads.open","downloads","storage"],
+
 }
