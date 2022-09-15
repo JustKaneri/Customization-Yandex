@@ -3,7 +3,12 @@
   "description": "Кастомизация Яндекса",
   "version": "1.0",
   "manifest_version": 3,
-
+  "content_scripts":[
+    {
+     "matches":["*://ya.ru/*"],
+     "js":["/scriptes/main.js"]
+    }
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -20,6 +25,6 @@
     "128": "/images/main_ico.png"
   },
 
-  "permissions": ["activeTab", "scripting","cookies","downloads.open","downloads","storage"],
+  "permissions": ["activeTab", "scripting","cookies","downloads.open","downloads","storage"]
 
 }
