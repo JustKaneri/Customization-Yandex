@@ -1,5 +1,7 @@
 const colorBack = document.getElementsByClassName('color_back')[0];
 const colorText = document.getElementsByClassName('color_text')[0];
+const buttonClear = document.getElementsByClassName('btn_clear')[0];
+
 let tabId = 0;
 
 chrome.windows.getAll({populate:true},getAllOpenWindows);
@@ -8,7 +10,9 @@ window.addEventListener('load', (event) => {
  	Load();
 });
 
-
+buttonClear.onclick = () =>{
+   SendMes('drop')
+};
 
 function Load(){
 	var back = localStorage.getItem("back");
@@ -20,11 +24,12 @@ function Load(){
 
 $('.color_back').change(function(){
    localStorage.setItem('back',colorBack.value);
-   SendMes('all ok')
+   SendMes('back:'+colorBack.value);
 });
 
 $('.color_text').change(function(){
    localStorage.setItem('text',colorText.value);
+   SendMes('text:'+ colorText.value);
 });
 
 
