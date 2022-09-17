@@ -1,4 +1,6 @@
-const defaultBackColor = [{key:'--color-g-bg-primary',color:'#fff'}]
+const defaultBackColor = [{key:'--color-g-bg-primary',color:'#fff'},
+                          {key:'--color-g-bg-secondary',color:'#fff'}];
+                          
 const defaultTextColor = [{key:'--color-g-bg-fill-12',color:'#0000001f'},
                           {key:'--color-g-text-primary',color:'#000'},
                           {key:'--color-g-text-quaternary',color:'#00000073'},
