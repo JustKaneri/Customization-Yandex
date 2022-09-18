@@ -1,7 +1,5 @@
-const colorBack = document.getElementsByClassName('color_back')[0];
-const colorText = document.getElementsByClassName('color_text')[0];
-const buttonClear = document.getElementsByClassName('btn_clear')[0];
 var inputSrc = document.getElementsByClassName('input_src')[0];
+const img = document.getElementsByClassName('img')[0];
 
 chrome.windows.getAll({populate:true},getAllOpenWindows);
 var tabId = 0;
@@ -23,30 +21,32 @@ function getAllOpenWindows(winData) {
 }
 
 window.addEventListener('load', (event) => {
- 	Load();
+ 	var img = localStorage.getItem('img');
+ 	inputSrc.value = img;
+	inputSrc.style.borderColor = 'green';
 });
 
-buttonClear.onclick = () =>{
-   SendMes('drop')
-};
 
-function Load(){
-	var back = localStorage.getItem("back");
-	var text = localStorage.getItem('text');
-
-	colorBack.value = back;
-	colorText.value = text;
+inputSrc.oninput = () => {
+	console.log(inputSrc.value);
+	if(inputSrc.value == ''){
+		inputSrc.style.borderColor = 'gray';
+		SendMes('url^');
+		localStorage.removeItem('img');
+	}
+	else{
+		inputSrc.style.borderColor = 'green';
+		img.src = inputSrc.value;
+		localStorage.setItem('img',inputSrc.value);
+		SendMes('url^'+ inputSrc.value);	
+	}
 }
 
-$('.color_back').change(function(){
-   localStorage.setItem('back',colorBack.value);
-   SendMes('back^'+colorBack.value);
-});
 
-$('.color_text').change(function(){
-   localStorage.setItem('text',colorText.value);
-   SendMes('text^'+ colorText.value);
-});
+img.onerror = function () {
+  inputSrc.style.borderColor = 'red';
+  localStorage.removeItem('img');
+};
 
 
 async function SendMes(mes){
@@ -56,4 +56,3 @@ async function SendMes(mes){
 	    console.log('ok');
 	});
 }
-

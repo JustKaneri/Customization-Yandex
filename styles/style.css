@@ -131,7 +131,7 @@ body{
 	color: white;
 	display: flex;
 	align-items: center;
-	justify-content: flex-end;
+	justify-content: center;
 	flex-direction: column;
 
 	grid-row-gap: 20px;
@@ -152,16 +152,18 @@ body{
 	top: 10px;
 	left: 5px;
 	cursor: pointer;
-
 }
 
 .button_close:hover{
 	    text-shadow: 0px 0px 15px #ffffff;
 }
 
-.select__button, .delete__button{
-	width: 250px;
-	border-radius: 0px 100px;
+.input_src{
+	width: 245px;
+  height: 40px;
+  border: 3px solid gray;
+  padding-left: 15px;
+  border-radius: 0 100px;
 }
 
 
