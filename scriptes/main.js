@@ -1,5 +1,5 @@
-const defaultBackColor = [{key:'--color-g-bg-primary',color:'#fff'},
-                          {key:'--color-g-bg-secondary',color:'#fff'}];
+const defaultBackColor = [{key:'--color-g-bg-primary',color:'#ffffff'},
+                          {key:'--color-g-bg-secondary',color:'#ffffff'}];
                           
 const defaultTextColor = [{key:'--color-g-bg-fill-12',color:'#0000001f'},
                           {key:'--color-g-text-primary',color:'#000'},
@@ -64,7 +64,13 @@ function SetDefaultValue(){
 
     defaultTextColor.map((value)=>{
       document.documentElement.style.setProperty(value.key, value.value);
-    })  
+    }) 
+
+    Back.style.background = null;
+    localStorage.removeItem('back');
+    localStorage.removeItem('text');
+    localStorage.removeItem('opac');
+    localStorage.removeItem('img');
 }
 
 function UpdateBackground(){
@@ -95,12 +101,22 @@ function SetImageBacground(){
       return;
     } 
 
-    var res = hexToRgb(localStorage.getItem('back'));
-    var rgb = 'rgb(' + res.r + ', ' + res.g + ', ' + res.b + ', '+ localStorage.getItem('opac')/10 +')';
-    //Back.style.background = "url("+localStorage.getItem('url')+") center center / cover no-repeat ";
+    var res;
+    if(localStorage.getItem('back') === null){
+      res = hexToRgb(defaultBackColor[0].color);
+    }
+    else{
+      res = hexToRgb(localStorage.getItem('back'));
+    }
+    
+    var opac = 1;
+    if(localStorage.getItem('opac') !== null)
+      opac = localStorage.getItem('opac')/10;
+
+
+    var rgb = 'rgb(' + res.r + ', ' + res.g + ', ' + res.b + ', '+ opac +')';
     Back.style.background = "linear-gradient(0deg, "+rgb+" 0.64%, "+rgb+" 100%),url("+localStorage.getItem('url')+")  center center / cover no-repeat ";
 
-     console.log(Back.style.background);
 }
 
 

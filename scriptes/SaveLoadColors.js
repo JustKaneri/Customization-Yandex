@@ -2,6 +2,7 @@ const colorBack = document.getElementsByClassName('color_back')[0];
 const colorText = document.getElementsByClassName('color_text')[0];
 const buttonClear = document.getElementsByClassName('btn_clear')[0];
 var inputSrc = document.getElementsByClassName('input_src')[0];
+var inputRange = document.getElementsByClassName('input_opacity')[0];
 
 chrome.windows.getAll({populate:true},getAllOpenWindows);
 var tabId = 0;
@@ -28,6 +29,11 @@ window.addEventListener('load', (event) => {
 
 buttonClear.onclick = () =>{
    SendMes('drop')
+   colorBack.value = "#000000";
+   colorText.value = "#000000";
+   inputSrc.value = "";
+   inputRange.value = 10;
+   localStorage.clear();
 };
 
 function Load(){

@@ -20,8 +20,11 @@ function getAllOpenWindows(winData) {
 }
 
 window.addEventListener('load', (event) => {
+	var opac = localStorage.getItem('opac');
+  if(opac == null){
+    return;
+  }
 
- 	var opac = localStorage.getItem('opac');
  	inputRange.value = opac;
 
 });
