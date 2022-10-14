@@ -17,6 +17,7 @@ window.addEventListener('load', (event) => {
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse)  {
+    console.log(request.greeting);
     let answer  = recognitionMessage(request.greeting);
     if(answer == 'ok'){
       sendResponse({farewell: "greet!"});
@@ -113,7 +114,7 @@ function SetImageBacground(){
     if(localStorage.getItem('opac') !== null)
       opac = localStorage.getItem('opac')/10;
 
-
+    console.log('back is install');
     var rgb = 'rgb(' + res.r + ', ' + res.g + ', ' + res.b + ', '+ opac +')';
     Back.style.background = "linear-gradient(0deg, "+rgb+" 0.64%, "+rgb+" 100%),url("+localStorage.getItem('url')+")  center center / cover no-repeat ";
 

@@ -10,7 +10,6 @@ var tabId = 0;
 function getAllOpenWindows(winData) {
   var tabs = [];
   for (var i in winData) {
-      console.log(winData[i]);
     if (winData[i].focused === true) {
         var winTabs = winData[i].tabs;
         var totTabs = winTabs.length;
@@ -40,6 +39,12 @@ function Load(){
 	var back = localStorage.getItem("back");
 	var text = localStorage.getItem('text');
 
+   if(back == null)
+      back = "#000000";
+
+   if(text == null)
+      text = "#000000";
+
 	colorBack.value = back;
 	colorText.value = text;
 }
@@ -59,7 +64,7 @@ async function SendMes(mes){
 
 	chrome.tabs.sendMessage(tabId, {greeting: mes}, function(response)
 	{
-	    console.log('ok');
+	    console.log('ok' + tabId);
 	});
 }
 
