@@ -1,4 +1,4 @@
-# Customization Yandex
+# Customization Yandex (Не актуально)
 
 ## Версия: 
 > 1
